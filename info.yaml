@@ -49,8 +49,13 @@ verification:
   mathlib_revision: c44e0c8ee63ca166450922a373c7409c5d26b00b
   main_theorem: RC000002.unique_compact_attractor
   independent_peer_review: false
-  github_ci_run: false
+  github_ci_run: true
   challenge_verified: false
+  github_ci:
+    conclusion: success
+    run_id: 43606518846
+    url: https://github.com/maitheduy/RC-000002-RIS-MO-2/actions/runs/43606518846
+    verified_commit: 1a5879b484a44835765a99c4e7c2ff7da358d34e
 reproducibility:
   toolchain: lean-toolchain
   dependencies: lake-manifest.json

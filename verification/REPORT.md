@@ -45,7 +45,7 @@ Kết quả `#print axioms` cho hai định lý trọng tâm chỉ liệt kê:
 - Giá trị tối ưu `(1+sqrt(5))/4` của chuẩn ma trận: nằm trong bản chứng minh viết; Lean chứng nhận một chặn đủ mạnh hơn là `sqrt(3)/2` thông qua bất đẳng thức bình phương.
 - Hội tụ Hausdorff từ mọi tập compact ban đầu: không được hình thức hóa riêng. Định lý Lean chính chứng minh tính bất biến và duy nhất của tập compact khác rỗng.
 - Tính mới của kết quả, khả năng chấp nhận công bố, một lớp tiling toàn mặt phẳng mới hoặc tính phi tuần hoàn.
-- Chưa chạy GitHub Actions trên một kho công khai. Workflow được cung cấp để chạy lại.
+- Khi kiểm chứng cục bộ ban đầu, GitHub Actions chưa được chạy. Kết quả CI công khai bổ sung được ghi ở cuối báo cáo.
 
 ## Tái kiểm tra và bằng chứng
 
@@ -60,3 +60,9 @@ Bổ sung Open Challenge tiếng Anh về IFS hai ánh xạ cho phép chia simpl
 ## Công bố GitHub
 
 Kho công khai: https://github.com/maitheduy/RC-000002-RIS-MO-2. Đã khôi phục cấu trúc thư mục để các đường dẫn Lean, LaTeX và kiểm toán khớp cấu hình. Kết quả kiểm chứng cục bộ ở trên giữ nguyên; trạng thái chạy CI trên GitHub được theo dõi riêng.
+
+## GitHub Actions: kiểm chứng thành công
+
+Run #1 (43606518846) trên commit `1a5879b484a44835765a99c4e7c2ff7da358d34e` kết thúc với `success`. Bước Build and audit đã chạy thành công `lake build`, kiểm tra Lean trực tiếp và `scripts/audit.py`.
+
+Kết quả: https://github.com/maitheduy/RC-000002-RIS-MO-2/actions/runs/43606518846

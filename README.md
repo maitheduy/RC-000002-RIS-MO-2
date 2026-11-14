@@ -15,26 +15,26 @@ Repository: [https://github.com/maitheduy/RC-000002-RIS-MO-2](https://github.com
 
 Let
 
-\[
-T=\operatorname{conv}\{(0,0),(1,-1),(0,-1)\}
+$$
+T=\mathrm{conv}\{(0,0),(1,-1),(0,-1)\}
  =\{(x,y):0\le x\le -y\le1\},\qquad
 L=\begin{pmatrix}-1/2&-1/2\\0&1/2\end{pmatrix}.
-\]
+$$
 
 Define
 
-\[
+$$
 \begin{aligned}
 f_1(z)&=Lz,&f_2(z)&=Lz+(0,-1/2),\\
 f_3(z)&=Lz+(1/2,-1/2),&f_4(z)&=-Lz+(1/2,-1).
 \end{aligned}
-\]
+$$
 
 Then **T is the unique nonempty compact invariant set of this IFS**:
 
-\[
+$$
 T=f_1(T)\cup f_2(T)\cup f_3(T)\cup f_4(T).
-\]
+$$
 
 Each map is a strict Euclidean contraction. This RC records a concrete, reusable construction and proof; it does **not** claim a new class of plane tilings.
 
@@ -42,9 +42,9 @@ Each map is a strict Euclidean contraction. This RC records a concrete, reusable
 
 Take the midpoints
 
-\[
+$$
 M=(1/2,-1/2),\quad P=(1/2,-1),\quad Q=(0,-1/2).
-\]
+$$
 
 The ordered affine frame rule sends `(O,A,B)` to `(O,Q,M)`. It determines `L` by mapping the two source edge columns to their target columns. Translate the first image downward and diagonally to obtain the second and third maps; use central inversion and translation by `OP` for the fourth.
 
@@ -59,9 +59,9 @@ The midpoint construction covers T and the image interiors are disjoint. A detai
 
 The exact Euclidean operator norm is `(1+sqrt(5))/4 < 1`. The Lean proof uses the simpler sufficient bound
 
-\[
+$$
 \|f_i(u)-f_i(v)\|_2^2\le\tfrac34\|u-v\|_2^2,
-\]
+$$
 
 so `sqrt(3)/2 < 1` is also a valid contraction factor. The bound is deliberately not asserted to be optimal.
 
@@ -99,7 +99,7 @@ python3 scripts/audit.py
 
 Lean: **4.19.0**. Mathlib is pinned to commit **c44e0c8ee63ca166450922a373c7409c5d26b00b** (`v4.19.0`). `lake-manifest.json` records transitive dependencies. The source ends with `#print axioms` commands. Verification outputs and their meaning are documented in `verification/REPORT.md`.
 
-A GitHub Actions workflow is provided. It has not been run on GitHub merely by being included in this archive; local verification and hosted CI are different records.
+GitHub Actions verification also passed: [Lean verification run #1](https://github.com/maitheduy/RC-000002-RIS-MO-2/actions/runs/43606518846), commit `1a5879b484a44835765a99c4e7c2ff7da358d34e`. The build, direct Lean check, and source audit succeeded. This hosted check confirms the verified seed; it does not resolve the Open Challenge.
 
 ## Scope, provenance, and lineage
 
@@ -117,25 +117,25 @@ A GitHub Actions workflow is provided. It has not been run on GitHub merely by b
 
 ### A. An arbitrary triangle split by a prescribed cevian
 
-Let $A,B,C\in\mathbb R^2$ be noncollinear, let $T=\operatorname{conv}\{A,B,C\}$, and choose an arbitrary point $M\in\operatorname{relint}[A,C]$. The ray $BM$ cuts the solid triangle along the segment $[B,M]$ into
+Let $A,B,C\in\mathbb R^2$ be noncollinear, let $T=\mathrm{conv}\{A,B,C\}$, and choose an arbitrary point $M\in\mathrm{relint}[A,C]$. The ray $BM$ cuts the solid triangle along the segment $[B,M]$ into
 
-\[
-T_1=\operatorname{conv}\{A,B,M\},\qquad
-T_2=\operatorname{conv}\{M,B,C\}.
-\]
+$$
+T_1=\mathrm{conv}\{A,B,M\},\qquad
+T_2=\mathrm{conv}\{M,B,C\}.
+$$
 
 **Can two affine maps $g_1,g_2:\mathbb R^2\to\mathbb R^2$ be constructed, both strict contractions in the standard Euclidean metric, such that**
 
-\[
+$$
 g_1(T)=T_1,\qquad g_2(T)=T_2?
-\]
+$$
 
 These requirements imply the exact covering equation
 
-\[
+$$
 T=g_1(T)\cup g_2(T),\qquad
-\operatorname{int}g_1(T)\cap\operatorname{int}g_2(T)=\varnothing,
-\]
+\mathrm{int}g_1(T)\cap\mathrm{int}g_2(T)=\varnothing,
+$$
 
 and would make $T$ the unique attractor of a two-map contractive IFS. The requirement concerns the **prescribed** two pieces, not merely any two-map representation of $T$.
 
@@ -143,22 +143,22 @@ Determine whether this construction is possible for **every** nondegenerate tria
 
 ### B. A tetrahedron cut by a plane in three dimensions
 
-Let $S=\operatorname{conv}\{A,B,C,D\}\subset\mathbb R^3$ be a nondegenerate solid tetrahedron. Let a plane $H$ meet its interior and let $H^+,H^-$ be the two closed half-spaces bounded by $H$. Write
+Let $S=\mathrm{conv}\{A,B,C,D\}\subset\mathbb R^3$ be a nondegenerate solid tetrahedron. Let a plane $H$ meet its interior and let $H^+,H^-$ be the two closed half-spaces bounded by $H$. Write
 
-\[
+$$
 S_1=S\cap H^+,\qquad S_2=S\cap H^-.
-\]
+$$
 
 Seek **exactly two** strict contractions $g_1,g_2$ with $g_i(S)=S_i$, so that the two prescribed pieces tile $S$ and $S$ is the IFS attractor. First determine the feasibility of this requirement in the affine class; do not assume that every plane cut admits such a representation.
 
 **Geometric qualification.** An arbitrary plane cut need not yield two tetrahedra. An affine image of a tetrahedron has at most four extreme points, so a full-dimensional cut piece with more than four extreme points cannot be the image of that tetrahedron under a single affine map. Thus the unrestricted assertion for all plane cuts is already false in the affine class. The challenge is to classify the admissible cuts and establish contractivity, or to state and study a genuinely different nonlinear version explicitly.
 
-A natural tetrahedral subproblem is obtained by choosing $M\in\operatorname{relint}[C,D]$ and taking $H$ through the edge $[A,B]$ and $M$. The two pieces are
+A natural tetrahedral subproblem is obtained by choosing $M\in\mathrm{relint}[C,D]$ and taking $H$ through the edge $[A,B]$ and $M$. The two pieces are
 
-\[
-S_1=\operatorname{conv}\{A,B,C,M\},\qquad
-S_2=\operatorname{conv}\{A,B,M,D\}.
-\]
+$$
+S_1=\mathrm{conv}\{A,B,C,M\},\qquad
+S_2=\mathrm{conv}\{A,B,M,D\}.
+$$
 
 For arbitrary nondegenerate $S$ and arbitrary such $M$, decide when these two tetrahedra can be realized as the two images of a Euclidean contractive affine IFS.
 
@@ -166,24 +166,24 @@ For arbitrary nondegenerate $S$ and arbitrary such $M$, decide when these two te
 
 For each integer $n\ge3$, use a nondegenerate **$n$-simplex**
 
-\[
-\Delta=\operatorname{conv}\{v_0,\ldots,v_n\}\subset\mathbb R^n
-\]
+$$
+\Delta=\mathrm{conv}\{v_0,\ldots,v_n\}\subset\mathbb R^n
+$$
 
 as the full-dimensional analogue of a tetrahedron. Cut it by a prescribed affine hyperplane into two full-dimensional pieces and seek **exactly two** strict contractions whose images of $\Delta$ are precisely those pieces. Classify which cuts permit affine solutions, and identify obstructions for the others.
 
-For a canonical split into two $n$-simplices, choose $M\in\operatorname{relint}[v_0,v_1]$ and use the hyperplane
+For a canonical split into two $n$-simplices, choose $M\in\mathrm{relint}[v_0,v_1]$ and use the hyperplane
 
-\[
-H=\operatorname{aff}\{M,v_2,\ldots,v_n\}.
-\]
+$$
+H=\mathrm{aff}\{M,v_2,\ldots,v_n\}.
+$$
 
 The target pieces are
 
-\[
-\Delta_1=\operatorname{conv}\{v_0,M,v_2,\ldots,v_n\},\qquad
-\Delta_2=\operatorname{conv}\{M,v_1,v_2,\ldots,v_n\}.
-\]
+$$
+\Delta_1=\mathrm{conv}\{v_0,M,v_2,\ldots,v_n\},\qquad
+\Delta_2=\mathrm{conv}\{M,v_1,v_2,\ldots,v_n\}.
+$$
 
 Find explicit necessary and sufficient conditions for two strict Euclidean affine contractions mapping $\Delta$ onto these prescribed pieces, or produce rigorous obstructions. A literal tetrahedron embedded in $\mathbb R^n$ remains three-dimensional; it is a separate embedded version of Part B, not a full-dimensional $n$-simplex.
 
