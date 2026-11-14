@@ -3,7 +3,7 @@
 **Tên kho:** RC-000002-RIS-MO  
 **Tiêu đề:** RC-000002-RIS-MO: Four-map affine IFS with a solid triangular attractor  
 **Tác giả:** S.S. Duymt / maitheduy — F-Group  
-**Phiên bản:** 0.1.0
+**Phiên bản:** 0.2.0
 
 ## Mô tả
 
@@ -17,4 +17,8 @@
 - Tham chiếu RC-000001 như tiền thân về cách đóng gói. Không đánh dấu là giải quyết thách thức tứ diện của RC-000001.
 - Sau khi nhận URL/DOI thực tế, cập nhật README, info.yaml và CITATION.cff; không dùng URL/DOI giả định.
 
-Trạng thái hiện tại: đã kiểm chứng cục bộ; chưa tải lên GitHub hoặc Zenodo.
+Trạng thái: mã nguồn và hồ sơ kiểm chứng cục bộ được công bố tại https://github.com/maitheduy/RC-000002-RIS-MO-2. Chưa công bố trên Zenodo; chưa có DOI.
+
+## Open Challenge added in version 0.2.0
+
+The full English challenge is in OPEN_CHALLENGE.md and README.md. Metadata is provided as info.yaml and the identical requested alias infor.yaml. The challenge is not part of the Lean-verified seed claim.

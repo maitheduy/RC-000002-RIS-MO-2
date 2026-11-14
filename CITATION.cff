@@ -5,7 +5,7 @@ title: "RC-000002-RIS-MO: Four-map affine IFS with a solid triangular attractor"
 authors:
   - family-names: "Duymt"
     given-names: "S.S."
-version: "0.1.0"
+version: "0.2.0"
 date-released: "2026-11-14"
 abstract: >-
   A Research Capital unit containing a direct proof and Lean 4 formalization
@@ -19,3 +19,6 @@ keywords:
   - formal verification
   - triangular attractor
   - Research Capital
+
+repository-code: "https://github.com/maitheduy/RC-000002-RIS-MO-2"
+url: "https://github.com/maitheduy/RC-000002-RIS-MO-2"

@@ -52,3 +52,11 @@ Kết quả `#print axioms` cho hai định lý trọng tâm chỉ liệt kê:
 Xem các lệnh trong README. Các tệp log kèm theo là `build.log`, `lean-check.log`, `source-audit.log`, `toolchain.log`. `SHA256SUMS` ở thư mục gốc gắn hồ sơ với mã nguồn và tài liệu cụ thể; mã kiểm tra chỉ xác nhận toàn vẹn nội dung, không thay cho chạy Lean.
 
 Không có bước công bố GitHub hoặc Zenodo nào được thực hiện trong phiên này.
+
+## Cập nhật phiên bản 0.2.0
+
+Bổ sung Open Challenge tiếng Anh về IFS hai ánh xạ cho phép chia simplex được chỉ định. Mã Lean giữ nguyên từng byte so với phiên bản 0.1.0 đã kiểm chứng. Trạng thái PASSED_LEAN_GATE chỉ áp dụng cho các định lý đã nêu, không áp dụng cho các câu hỏi trong OPEN_CHALLENGE.md.
+
+## Công bố GitHub
+
+Kho công khai: https://github.com/maitheduy/RC-000002-RIS-MO-2. Đã khôi phục cấu trúc thư mục để các đường dẫn Lean, LaTeX và kiểm toán khớp cấu hình. Kết quả kiểm chứng cục bộ ở trên giữ nguyên; trạng thái chạy CI trên GitHub được theo dõi riêng.

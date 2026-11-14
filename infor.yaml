@@ -1,0 +1,124 @@
+id: RC-000002-RIS-MO
+version: 0.2.0
+title: Four-map affine IFS with a solid triangular attractor
+type: lemma
+domain: fractal_geometry / iterated_function_systems / affine_geometry
+author: S.S. Duymt / maitheduy
+research_group: F-Group
+created_at: '2026-11-14'
+identifier_note: Final character O is the letter O, matching the author's requested name.
+problem: Certify a prescribed four-map affine construction on a solid triangle.
+claim: 'Define T = {(x,y) in R^2 : 0 <= x <= -y <= 1}.
+
+  f1(x,y) = (-(x+y)/2, y/2)
+
+  f2(x,y) = (-(x+y)/2, y/2 - 1/2)
+
+  f3(x,y) = (-(x+y)/2 + 1/2, y/2 - 1/2)
+
+  f4(x,y) = ((x+y)/2 + 1/2, -y/2 - 1).
+
+  Each fi is a strict Euclidean contraction.
+
+  T is nonempty, compact, and the unique nonempty compact set K satisfying
+
+  K = f1(K) union f2(K) union f3(K) union f4(K).
+
+  '
+method:
+- Ordered affine-frame matching
+- Exact linear inequalities for coverage
+- Squared Euclidean contraction estimate
+- Two-step homothety and Hausdorff-distance uniqueness
+invariant_set: conv{(0,0),(1,-1),(0,-1)}
+evidence:
+  formal_source: RC000002/Triangle.lean
+  written_proof: docs/name.tex
+  references: docs/references.bib
+  report: verification/REPORT.md
+verification:
+  status: PASSED_LEAN_GATE
+  engine: Lean 4
+  scope: Unique nonempty compact invariant set; exact set equation; squared Euclidean contraction; two-step
+    contraction
+  build_exit_code: 0
+  direct_check_exit_code: 0
+  sorry_ax: false
+  user_declared_axioms: false
+  lean_version: 4.19.0
+  mathlib_revision: c44e0c8ee63ca166450922a373c7409c5d26b00b
+  main_theorem: RC000002.unique_compact_attractor
+  independent_peer_review: false
+  github_ci_run: false
+  challenge_verified: false
+reproducibility:
+  toolchain: lean-toolchain
+  dependencies: lake-manifest.json
+  commands:
+  - lake exe cache get Mathlib.Topology.MetricSpace.HausdorffDistance Mathlib.Topology.Instances.Real.Lemmas
+    Mathlib.Tactic.Linarith Mathlib.Tactic.NormNum Mathlib.Tactic.Ring Mathlib.Tactic.FinCases
+  - lake build
+  - lake env lean RC000002/Triangle.lean
+  - python3 scripts/audit.py
+provenance:
+  mathematical_construction: Dr.rer.nat Duymt, research session 2026-11-14
+  proof_and_packaging_assistance: ChatGPT
+lineage:
+  format_based_on: https://github.com/maitheduy/RC-000001-RIS-M0
+  reference_commit: fd65d2cbbb059dcb852e3e7632e4cbf5b87ad53e
+  mathematical_dependency_on_rc000001: false
+  resolves_rc000001_tetrahedron_challenge: false
+novelty:
+  status: NOT_ESTABLISHED
+  note: Medial subdivision and related triangular affine IFS constructions are already known.
+limitations:
+- Does not establish a new plane tiling class or aperiodicity.
+- Does not formally prove Hausdorff convergence for arbitrary initial compact sets.
+- The optimal Euclidean Lipschitz constant is in the written note, not the Lean theorem.
+- Interior non-overlap is proved in the written note, not yet in Lean.
+- Local kernel checking is not independent peer review or hosted CI.
+challenge: Two-map contractive IFS for prescribed simplex partitions. Given any triangle ABC and an interior
+  point M on AC, seek exactly two strict Euclidean affine contractions whose images are ABM and MBC. Extend
+  the feasibility and construction problem to a tetrahedron cut by a plane and to a full-dimensional n-simplex
+  in R^n, n >= 3. Classify admissible cuts, vertex assignments and contraction conditions; provide obstructions
+  when the universal assertion fails. See OPEN_CHALLENGE.md for the full statement and qualifications.
+publication:
+  status: PUBLISHED_GITHUB
+  doi: null
+  repository_url: https://github.com/maitheduy/RC-000002-RIS-MO-2
+license: Not yet specified by the author; no license grant is implied.
+tags:
+- IFS
+- affine_map
+- triangle
+- invariant_set
+- Lean4
+- Research_Capital
+open_challenges:
+- id: OC-TRIANGLE-2MAP
+  domain: R^2
+  target: Any nondegenerate triangle ABC with any prescribed M in relint[AC]
+  pieces:
+  - conv{A,B,M}
+  - conv{M,B,C}
+  map_count: 2
+  primary_map_class: affine
+  metric: standard Euclidean
+  status: RESEARCH_CHALLENGE_NOT_LEAN_VERIFIED
+- id: OC-TETRAHEDRON-2MAP
+  domain: R^3
+  target: A solid tetrahedron with a prescribed plane cut
+  map_count: 2
+  status: FEASIBILITY_AND_CLASSIFICATION_CHALLENGE
+  qualification: Not every plane cut yields two tetrahedra; pieces with more than four extreme points
+    rule out a single affine image.
+  canonical_subproblem: Plane through one edge and an interior point of the opposite edge.
+- id: OC-SIMPLEX-N-2MAP
+  domain: R^n, n >= 3
+  target: A full-dimensional n-simplex cut by a hyperplane
+  map_count: 2
+  status: RESEARCH_CHALLENGE_NOT_LEAN_VERIFIED
+  canonical_subproblem: H = aff{M,v2,...,vn}, M in relint[v0,v1].
+  embedded_variant: A literal tetrahedron in R^n remains three-dimensional.
+challenge_document: OPEN_CHALLENGE.md
+metadata_alias: infor.yaml
