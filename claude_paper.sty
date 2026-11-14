@@ -1,0 +1,82 @@
+%% ============================================================
+%%  claude_paper.sty
+%%  Style cho bài báo / tuyên ngôn tiếng Việt, biên dịch bằng XeLaTeX.
+%%  Dùng:  \usepackage{styles/claude_paper}
+%% ============================================================
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{styles/claude_paper}[2026/10/31 Claude paper style (XeLaTeX, Vietnamese)]
+
+% ---------- Fonts và ngôn ngữ ----------
+\RequirePackage{fontspec}
+\RequirePackage{polyglossia}
+\setmainlanguage{vietnamese}
+\setmainfont{TeX Gyre Termes}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{TeX Gyre Cursor}
+
+% ---------- Gói cơ bản ----------
+\RequirePackage[margin=2.5cm]{geometry}
+\RequirePackage{microtype}
+\RequirePackage{xcolor}
+\RequirePackage{booktabs}
+\RequirePackage{tabularx}
+\RequirePackage{array}
+\RequirePackage{enumitem}
+\RequirePackage{setspace}
+\RequirePackage{titlesec}
+\RequirePackage{fancyhdr}
+\RequirePackage[most]{tcolorbox}
+\RequirePackage[numbers,sort&compress]{natbib}
+\RequirePackage{xurl}
+
+% ---------- Màu ----------
+\definecolor{duyblue}{RGB}{20,60,120}
+\definecolor{duygold}{RGB}{176,124,20}
+\definecolor{duygray}{RGB}{245,245,247}
+\definecolor{duygreen}{RGB}{30,100,70}
+\definecolor{duyred}{RGB}{150,40,40}
+
+% hyperref nạp sau cùng trong nhóm gói chính
+\RequirePackage[colorlinks=true,linkcolor=duyblue,citecolor=duyblue,urlcolor=duyblue]{hyperref}
+
+% ---------- Dàn trang ----------
+\setlength{\headheight}{15pt}
+\setlength{\emergencystretch}{3em}
+\setstretch{1.12}
+\setlength{\parskip}{4pt}
+\setlength{\parindent}{0pt}
+
+% ---------- Lệnh tắt ----------
+\newcommand{\ra}{\,$\rightarrow$\,}
+
+% ---------- Tiêu đề mục ----------
+\titleformat{\section}{\Large\bfseries\sffamily\color{duyblue}}{\thesection.}{0.6em}{}
+\titleformat{\subsection}{\large\bfseries\sffamily\color{duyblue}}{\thesubsection}{0.6em}{}
+
+% ---------- Các hộp ----------
+\newtcolorbox{tuyenngon}[1][]{enhanced,breakable,colback=duygray,colframe=duyblue,
+  boxrule=0.8pt,left=10pt,right=10pt,top=8pt,bottom=8pt,
+  fonttitle=\bfseries\sffamily,title={Nguyên tắc},coltitle=white,
+  colbacktitle=duyblue,#1}
+\newtcolorbox{nhanxet}[1][]{enhanced,breakable,colback=white,colframe=duygold,
+  boxrule=0.8pt,left=10pt,right=10pt,top=6pt,bottom=6pt,
+  fonttitle=\bfseries\sffamily,title={Nhận định},coltitle=white,
+  colbacktitle=duygold,#1}
+\newtcolorbox{luuy}[1][]{enhanced,breakable,colback=white,colframe=duyred,
+  boxrule=0.8pt,left=10pt,right=10pt,top=6pt,bottom=6pt,
+  fonttitle=\bfseries\sffamily,title={Lưu ý},coltitle=white,
+  colbacktitle=duyred,#1}
+\newtcolorbox{dexuat}[1][]{enhanced,breakable,colback=duygray,colframe=duygreen,
+  boxrule=0.8pt,left=10pt,right=10pt,top=6pt,bottom=6pt,
+  fonttitle=\bfseries\sffamily,title={Đề nghị},coltitle=white,
+  colbacktitle=duygreen,#1}
+
+% ---------- Đầu và chân trang ----------
+\newcommand{\claudeheader}[2]{%
+  \pagestyle{fancy}\fancyhf{}%
+  \renewcommand{\headrulewidth}{0.4pt}%
+  \fancyhead[L]{\small\sffamily #1}%
+  \fancyhead[R]{\small\sffamily #2}%
+  \fancyfoot[C]{\small\thepage}}
+
+\endinput

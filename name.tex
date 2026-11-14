@@ -1,0 +1,165 @@
+% !TEX program = xelatex
+\documentclass[12pt,a4paper]{article}
+\usepackage{styles/claude_paper}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newtheorem{claim}{Claim}
+\renewcommand{\proofname}{Chứng minh}
+\claudeheader{IFS affine trên tam giác}{F-group}
+\title{\textbf{\sffamily\color{duyblue}Attractor tam giác của một hệ IFS affine}\\[3pt]
+\large\sffamily Một claim và chứng minh trực tiếp}
+\author{F-Group}
+\date{Ngày 14 tháng 11 năm 2026}
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+\begin{abstract}
+Chúng tôi xác định bốn ánh xạ affine co trong mặt phẳng và chứng minh attractor duy nhất của hệ chính là tam giác đặc có các đỉnh $O=(0,0)$, $A=(1,-1)$ và $B=(0,-1)$. Chứng minh dựa trên quy tắc ghép khung cạnh có thứ tự, kiểm tra chuẩn Euclid của phần tuyến tính và phân hoạch tam giác bằng ba trung điểm. Bản ghi trình bày tường minh các ánh xạ và chứng minh phân hoạch; không đưa ra tuyên bố về tính mới của phép chia tam giác bằng trung điểm.
+\end{abstract}
+
+\section{Bối cảnh và mục tiêu}
+Lý thuyết IFS co bảo đảm sự tồn tại và duy nhất của một tập compact khác rỗng bất biến, đồng thời cho phép nhận diện attractor bằng phương trình tập hợp; kết quả nền tảng này được thiết lập bởi Hutchinson~\cite[\S 3.1]{hutchinson1981}. Với một hệ cụ thể, nhiệm vụ còn lại là kiểm tra tính co và chứng minh rằng tập mục tiêu thật sự được phủ bởi các ảnh của chính nó.
+
+Về hình học, nối ba trung điểm của các cạnh là phép phân hoạch trung điểm (\emph{medial triangle subdivision}). Brunck~\cite[\S 1]{brunck2023medial} nghiên cứu phép chia này trên các mặt có độ cong hằng và nhắc rõ trường hợp Euclid: bốn tam giác con bằng nhau, đồng dạng với tam giác ban đầu theo tỉ số $1/2$. Nguồn này được dùng để định vị phép phân hoạch hình học, không phải để quy thuộc hệ ánh xạ cụ thể dưới đây.
+
+Về IFS và lát phủ, Barnsley và Vince~\cite[Ví dụ 3.14, tr.~738--739]{barnsleyvince2014tilings} trình bày các hệ affine bốn thành phần gắn với tam giác. Đây là bối cảnh gần với xây dựng hiện tại; bản ghi này chưa xác lập sự tương đương giữa hai hệ. Chúng tôi chỉ chứng minh trực tiếp một claim về attractor tam giác với tọa độ và thứ tự ghép đỉnh đã cho. Việc trình bày riêng một kết quả nhỏ, có bằng chứng và giới hạn rõ ràng, phù hợp với định hướng Research Capital~\cite{duymt_research_capital,duymt_research_capital_unit}.
+
+\section{Dữ liệu và quy tắc xây dựng}
+Đặt
+\[
+T=\operatorname{conv}\{O,A,B\}
+ =\{(x,y)\in\mathbb R^2:0\leq x\leq -y\leq1\},
+\]
+và lấy ba trung điểm
+\[
+M=(\tfrac12,-\tfrac12),\qquad
+P=(\tfrac12,-1),\qquad Q=(0,-\tfrac12).
+\]
+Trong bài viết, ``tam giác'' luôn chỉ miền tam giác đặc, bao gồm biên.
+
+\textbf{Quy tắc ghép khung cạnh có thứ tự.}
+Với hai bộ ba không thẳng hàng $(v_0,v_1,v_2)$ và $(w_0,w_1,w_2)$, ánh xạ affine duy nhất gửi $v_j$ tới $w_j$ có dạng
+\[
+f(z)=w_0+[w_1-w_0\ \ w_2-w_0]
+[v_1-v_0\ \ v_2-v_0]^{-1}(z-v_0).
+\]
+Các véc tơ trong ngoặc vuông là các cột. Tên gọi trên là quy ước trình bày trong bản ghi này; công thức là phép xác định affine chuẩn từ ảnh của một khung. Thật vậy, ma trận phần tuyến tính phải gửi hai cột nguồn sang hai cột đích, nên công thức thu được bằng nhân với ma trận nguồn nghịch đảo. Áp dụng cho $(O,A,B)\mapsto(O,Q,M)$, ta được
+\[
+L=\begin{pmatrix}0&\tfrac12\\-\tfrac12&-\tfrac12\end{pmatrix}
+\begin{pmatrix}1&0\\-1&-1\end{pmatrix}^{-1}
+=\begin{pmatrix}-\tfrac12&-\tfrac12\\0&\tfrac12\end{pmatrix}.
+\]
+Xét bốn ánh xạ trên $\mathbb R^2$:
+\begin{equation}\label{eq:ifs}
+\begin{aligned}
+ f_1(z)&=Lz,& f_2(z)&=Lz+\binom{0}{-\tfrac12},\\
+ f_3(z)&=Lz+\binom{\tfrac12}{-\tfrac12},&
+ f_4(z)&=-Lz+\binom{\tfrac12}{-1}.
+\end{aligned}
+\end{equation}
+
+\section{Claim và chứng minh}
+\begin{claim}\label{cl:triangle}
+Hệ $\mathcal F=\{f_1,f_2,f_3,f_4\}$ trong~\eqref{eq:ifs} là một IFS co theo khoảng cách Euclid. Attractor duy nhất của hệ là $T$. Hơn nữa,
+\[
+T=\bigcup_{i=1}^4 f_i(T),\qquad
+\operatorname{int}f_i(T)\cap\operatorname{int}f_j(T)=\varnothing\quad(i\ne j).
+\]
+\end{claim}
+
+\begin{proof}
+\textbf{Bước 1: Tính co.}
+Ta tính được
+\[
+L^{\mathsf T}L=\begin{pmatrix}\tfrac14&\tfrac14\\\tfrac14&\tfrac12\end{pmatrix}.
+\]
+Hai trị riêng của ma trận này là $(3\pm\sqrt5)/8$. Do đó
+\[
+\|L\|_2=\|-L\|_2
+=\sqrt{\frac{3+\sqrt5}{8}}
+=\frac{1+\sqrt5}{4}=:q<1.
+\]
+Các véc tơ tịnh tiến triệt tiêu khi lấy hiệu, nên với mọi $u,v\in\mathbb R^2$ và mọi $i$,
+\[
+\|f_i(u)-f_i(v)\|_2\leq q\|u-v\|_2.
+\]
+Vì vậy cả bốn ánh xạ đều co.
+
+\textbf{Bước 2: Xác định ảnh các tam giác.}
+Thế trực tiếp tọa độ các đỉnh vào~\eqref{eq:ifs} cho bảng sau:
+\begin{center}
+\begin{tabular}{ccccc}
+\toprule
+Ánh xạ & $f_i(O)$ & $f_i(A)$ & $f_i(B)$ & $f_i(T)$\\
+\midrule
+$f_1$ & $O$ & $Q$ & $M$ & $\operatorname{conv}\{O,Q,M\}$\\
+$f_2$ & $Q$ & $B$ & $P$ & $\operatorname{conv}\{Q,B,P\}$\\
+$f_3$ & $M$ & $P$ & $A$ & $\operatorname{conv}\{M,P,A\}$\\
+$f_4$ & $P$ & $M$ & $Q$ & $\operatorname{conv}\{P,M,Q\}$\\
+\bottomrule
+\end{tabular}
+\end{center}
+Ở đây dùng tính chất ánh xạ affine bảo toàn tổ hợp lồi.
+
+\textbf{Bước 3: Phủ kín và không chồng nội thất.}
+Tọa độ barycentric là công cụ chuẩn để mô tả các tổ hợp affine và tổ hợp lồi trên simplex; xem phần mở đầu tổng quan của Floater~\cite{floater2015barycentric}. Trong trường hợp tam giác đang xét, chúng tôi kiểm tra phân hoạch bằng các công thức tường minh sau. Viết duy nhất mỗi $z\in T$ dưới dạng tọa độ barycentric
+\[
+z=\alpha O+\beta A+\gamma B,\qquad
+\alpha,\beta,\gamma\geq0,\quad\alpha+\beta+\gamma=1.
+\]
+Ba tam giác ở góc lần lượt có điều kiện
+\[
+f_1(T):\ \alpha\geq\tfrac12,\qquad
+f_2(T):\ \gamma\geq\tfrac12,\qquad
+f_3(T):\ \beta\geq\tfrac12.
+\]
+Chẳng hạn, nếu $\alpha\geq1/2$, thì
+\[
+z=(2\alpha-1)O+2\gamma Q+2\beta M,
+\]
+là một tổ hợp lồi của $O,Q,M$; chiều ngược lại suy ra bằng cách khai triển các trung điểm. Hai trường hợp góc còn lại được chứng minh bằng cùng phép khai triển.
+Tam giác giữa có điều kiện
+\[
+f_4(T):\quad \alpha,\beta,\gamma\leq\tfrac12,
+\]
+vì trong trường hợp này
+\[
+z=(1-2\alpha)P+(1-2\gamma)M+(1-2\beta)Q.
+\]
+Các hệ số không âm và có tổng bằng $1$; chiều ngược lại cũng theo khai triển trung điểm.
+
+Mọi bộ $(\alpha,\beta,\gamma)$ hoặc có một tọa độ ít nhất bằng $1/2$, hoặc có cả ba tọa độ không quá $1/2$. Vì thế bốn ảnh phủ kín $T$. Trong nội thất một tam giác góc, tọa độ ứng với góc đó lớn hơn $1/2$; trong nội thất tam giác giữa, cả ba tọa độ nhỏ hơn $1/2$. Hai tọa độ không thể đồng thời lớn hơn $1/2$ vì tổng bằng $1$. Do đó các nội thất đôi một rời nhau.
+
+\textbf{Bước 4: Nhận diện attractor.}
+Không gian $\mathbb R^2$ đầy đủ, các $f_i$ đều co và $T$ là tập compact khác rỗng thỏa $T=\bigcup_i f_i(T)$. Định lý Hutchinson~\cite[\S 3.1]{hutchinson1981} bảo đảm hệ có duy nhất một tập compact khác rỗng thỏa phương trình này. Vậy attractor chính là $T$.
+\end{proof}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=4]
+\coordinate (O) at (0,0);\coordinate (A) at (1,-1);\coordinate (B) at (0,-1);
+\coordinate (M) at (.5,-.5);\coordinate (P) at (.5,-1);\coordinate (Q) at (0,-.5);
+\fill[duyblue!15] (O)--(Q)--(M)--cycle;
+\fill[duygreen!18] (Q)--(B)--(P)--cycle;
+\fill[duygold!23] (M)--(P)--(A)--cycle;
+\fill[duyred!15] (P)--(M)--(Q)--cycle;
+\draw[thick] (O)--(A)--(B)--cycle;
+\draw (Q)--(M)--(P)--cycle;
+\node[above] at (O) {$O$};\node[right] at (A) {$A$};\node[below left] at (B) {$B$};
+\node[above right] at (M) {$M$};\node[below] at (P) {$P$};\node[left] at (Q) {$Q$};
+\node at (.14,-.34) {$f_1(T)$};\node at (.15,-.84) {$f_2(T)$};
+\node at (.67,-.84) {$f_3(T)$};\node at (.34,-.66) {$f_4(T)$};
+\end{tikzpicture}
+\caption{Phân hoạch tam giác $T$ bởi bốn ảnh affine. Các mảnh chỉ có thể giao nhau trên biên.}
+\end{figure}
+
+\section{Phạm vi và trạng thái kiểm chứng}
+\textbf{Nguồn gốc.} Dữ liệu tọa độ, thứ tự ghép đỉnh và bốn ánh xạ do Dr.rer.nat Duymt đề xuất trong phiên nghiên cứu ngày 14/11/2026. Bản ghi này trình bày chứng minh và phép kiểm tra đại số cho xây dựng đó.
+
+\textbf{Kiểm chứng.} Chứng minh trực tiếp bằng đại số tuyến tính và tọa độ barycentric; ma trận và ảnh các đỉnh đã được đối chiếu bằng tính toán ký hiệu chính xác. Trong gói RC-000002-RIS-MO, phương trình bất biến, tính compact, tính không rỗng, ước lượng co Euclid bình phương và tính duy nhất của tập compact bất biến đã được kiểm chứng bằng Lean 4.19.0. Chứng minh hình thức dùng tính co hai bước trong metric tích và khoảng cách Hausdorff. Tính không chồng nội thất và hằng số co tối ưu trong bản viết này chưa được hình thức hóa; chưa có phản biện độc lập.
+
+\textbf{Giới hạn.} Claim xác lập attractor và phân hoạch của một tam giác hữu hạn. Chưa khẳng định một lớp lát phủ toàn mặt phẳng mới, tính phi tuần hoàn hoặc tính mới so với văn liệu. Phép phân hoạch trung điểm là cấu trúc đã biết~\cite{brunck2023medial}; các xây dựng IFS tam giác liên quan đã có trong~\cite{barnsleyvince2014tilings}. Các trích dẫn này không chứng nhận tính mới của thứ tự ghép đỉnh đang dùng. Không cần các kết quả mở rộng khác để sử dụng claim này.
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}

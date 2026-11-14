@@ -1,0 +1,2 @@
+'RC000002.unique_compact_attractor' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RC000002.euclidean_contraction_squared' depends on axioms: [propext, Classical.choice, Quot.sound]

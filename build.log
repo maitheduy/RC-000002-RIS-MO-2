@@ -1,0 +1,5 @@
+ℹ [1534/1536] Built RC000002.Triangle
+info: ././././RC000002/Triangle.lean:175:0: 'RC000002.unique_compact_attractor' depends on axioms: [propext, Classical.choice, Quot.sound]
+info: ././././RC000002/Triangle.lean:176:0: 'RC000002.euclidean_contraction_squared' depends on axioms: [propext, Classical.choice, Quot.sound]
+✔ [1535/1536] Built RC000002
+Build completed successfully.

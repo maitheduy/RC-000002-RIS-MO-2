@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "Please cite this verified Research Capital unit and the specific version used."
+type: software
+title: "RC-000002-RIS-MO: Four-map affine IFS with a solid triangular attractor"
+authors:
+  - family-names: "Duymt"
+    given-names: "S.S."
+version: "0.1.0"
+date-released: "2026-11-14"
+abstract: >-
+  A Research Capital unit containing a direct proof and Lean 4 formalization
+  of the unique nonempty compact invariant set of four prescribed affine maps.
+  The set is the solid triangle with vertices (0,0), (1,-1), and (0,-1).
+  Local verification succeeded; novelty and public publication are not asserted.
+keywords:
+  - iterated function systems
+  - affine maps
+  - Lean 4
+  - formal verification
+  - triangular attractor
+  - Research Capital

@@ -1,0 +1,1 @@
+PASS: 2 Lean sources contain no proof holes, declared axioms, or native_decide.
