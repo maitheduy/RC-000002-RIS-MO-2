@@ -4,11 +4,11 @@
 
 ### A. An arbitrary triangle split by a prescribed cevian
 
-Let $A,B,C\in\mathbb R^2$ be noncollinear, let $T=\mathrm{conv}\{A,B,C\}$, and choose an arbitrary point $M\in\mathrm{relint}[A,C]$. The ray $BM$ cuts the solid triangle along the segment $[B,M]$ into
+Let $A,B,C\in\mathbb R^2$ be noncollinear, let $T=\mathrm{conv}\lbrace A,B,C\rbrace $, and choose an arbitrary point $M\in\mathrm{relint}[A,C]$. The ray $BM$ cuts the solid triangle along the segment $[B,M]$ into
 
 $$
-T_1=\mathrm{conv}\{A,B,M\},\qquad
-T_2=\mathrm{conv}\{M,B,C\}.
+T_1=\mathrm{conv}\lbrace A,B,M\rbrace ,\qquad
+T_2=\mathrm{conv}\lbrace M,B,C\rbrace .
 $$
 
 **Can two affine maps $g_1,g_2:\mathbb R^2\to\mathbb R^2$ be constructed, both strict contractions in the standard Euclidean metric, such that**
@@ -30,7 +30,7 @@ Determine whether this construction is possible for **every** nondegenerate tria
 
 ### B. A tetrahedron cut by a plane in three dimensions
 
-Let $S=\mathrm{conv}\{A,B,C,D\}\subset\mathbb R^3$ be a nondegenerate solid tetrahedron. Let a plane $H$ meet its interior and let $H^+,H^-$ be the two closed half-spaces bounded by $H$. Write
+Let $S=\mathrm{conv}\lbrace A,B,C,D\rbrace \subset\mathbb R^3$ be a nondegenerate solid tetrahedron. Let a plane $H$ meet its interior and let $H^+,H^-$ be the two closed half-spaces bounded by $H$. Write
 
 $$
 S_1=S\cap H^+,\qquad S_2=S\cap H^-.
@@ -43,8 +43,8 @@ Seek **exactly two** strict contractions $g_1,g_2$ with $g_i(S)=S_i$, so that th
 A natural tetrahedral subproblem is obtained by choosing $M\in\mathrm{relint}[C,D]$ and taking $H$ through the edge $[A,B]$ and $M$. The two pieces are
 
 $$
-S_1=\mathrm{conv}\{A,B,C,M\},\qquad
-S_2=\mathrm{conv}\{A,B,M,D\}.
+S_1=\mathrm{conv}\lbrace A,B,C,M\rbrace ,\qquad
+S_2=\mathrm{conv}\lbrace A,B,M,D\rbrace .
 $$
 
 For arbitrary nondegenerate $S$ and arbitrary such $M$, decide when these two tetrahedra can be realized as the two images of a Euclidean contractive affine IFS.
@@ -54,7 +54,7 @@ For arbitrary nondegenerate $S$ and arbitrary such $M$, decide when these two te
 For each integer $n\ge3$, use a nondegenerate **$n$-simplex**
 
 $$
-\Delta=\mathrm{conv}\{v_0,\ldots,v_n\}\subset\mathbb R^n
+\Delta=\mathrm{conv}\lbrace v_0,\ldots,v_n\rbrace \subset\mathbb R^n
 $$
 
 as the full-dimensional analogue of a tetrahedron. Cut it by a prescribed affine hyperplane into two full-dimensional pieces and seek **exactly two** strict contractions whose images of $\Delta$ are precisely those pieces. Classify which cuts permit affine solutions, and identify obstructions for the others.
@@ -62,14 +62,14 @@ as the full-dimensional analogue of a tetrahedron. Cut it by a prescribed affine
 For a canonical split into two $n$-simplices, choose $M\in\mathrm{relint}[v_0,v_1]$ and use the hyperplane
 
 $$
-H=\mathrm{aff}\{M,v_2,\ldots,v_n\}.
+H=\mathrm{aff}\lbrace M,v_2,\ldots,v_n\rbrace .
 $$
 
 The target pieces are
 
 $$
-\Delta_1=\mathrm{conv}\{v_0,M,v_2,\ldots,v_n\},\qquad
-\Delta_2=\mathrm{conv}\{M,v_1,v_2,\ldots,v_n\}.
+\Delta_1=\mathrm{conv}\lbrace v_0,M,v_2,\ldots,v_n\rbrace ,\qquad
+\Delta_2=\mathrm{conv}\lbrace M,v_1,v_2,\ldots,v_n\rbrace .
 $$
 
 Find explicit necessary and sufficient conditions for two strict Euclidean affine contractions mapping $\Delta$ onto these prescribed pieces, or produce rigorous obstructions. A literal tetrahedron embedded in $\mathbb R^n$ remains three-dimensional; it is a separate embedded version of Part B, not a full-dimensional $n$-simplex.
